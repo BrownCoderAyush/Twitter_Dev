@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const {dbUrl} = require('./config');
 const connect = async ()=>{
-    await mongoose.connect('mongodb://127.0.0.1:27017/twitter_Dev');
+    await mongoose.connect(dbUrl);
 }
 
  module.exports = connect;
