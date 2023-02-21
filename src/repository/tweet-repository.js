@@ -22,7 +22,8 @@ class TweetRepository{
         }
     }
 
-
+    /*
+    update tweet not required as twitter dont support this feature 
     async update(id , data){
         try {
             const tweet = await Tweet.findByIdAndUpdate(id , data , {new : true});
@@ -31,6 +32,7 @@ class TweetRepository{
             console.log(error);
         }
     }
+    */
 
     async destory(id){
         try {
@@ -48,6 +50,8 @@ class TweetRepository{
             console.log(error);
         }
     }
+
+    
 
 }
 
