@@ -1,10 +1,11 @@
 import Tweet from '../models/tweet.js';
-
-class TweetRepository{
-    constructor(){
-
+import CrudRepository from './crud-repository.js';
+class TweetRepository extends CrudRepository {
+    constructor() {
+        super(Tweet);
     }
-    async create(data){
+    
+    async create(data) {
         try {
             const tweet = await Tweet.create(data);
             return tweet;
@@ -13,14 +14,16 @@ class TweetRepository{
         }
     }
 
-    async get(id){
+    async getWithLikes(id) {
         try {
-            const tweet = await Tweet.findById(id).populate({path:'comments'});
+            const tweet = await Tweet.findById(id).populate({ path: 'likes' });
+
             return tweet;
         } catch (error) {
             console.log(error);
         }
     }
+
 
     /*
     update tweet not required as twitter dont support this feature 
@@ -34,15 +37,8 @@ class TweetRepository{
     }
     */
 
-    async destory(id){
-        try {
-            const tweet = await Tweet.findByIdAndRemove(id);
-            return tweet;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    async getAll(offset , limit){
+
+    async getAll(offset, limit) {
         try {
             const tweet = await Tweet.find().skip(offset).limit(limit);
             return tweet;
@@ -51,7 +47,7 @@ class TweetRepository{
         }
     }
 
-    
+
 
 }
 
