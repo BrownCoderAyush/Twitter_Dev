@@ -9,8 +9,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/api' , apiroutes); 
 
+ 
 app.listen(3000 , async()=>{
     console.log('server started');
+    console.log("hello world");
     await connect();
     console.log('Mongo Db connected');
     // const tweetService = new TweetService();
