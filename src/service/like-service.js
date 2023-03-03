@@ -16,8 +16,6 @@ class LikeService {
         */
         if (modelType == 'Tweet') {
             var likeable = await this.tweetRepository.getWithLikes(modelId);
-
-
         }
         /*
         if model type -> 'Comment'

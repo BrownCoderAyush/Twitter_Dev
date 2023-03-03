@@ -6,6 +6,7 @@ import {UserRepository , LikeRepository , TweetRepository} from './repository/in
 import likeService from './service/like-service.js';
 import TweetService from './service/tweet-service.js';
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -35,12 +36,15 @@ app.listen(3000 , async()=>{
     //     user : '6400eec1ded4a0081d2273cc'
     // })
     // console.log(like)
-    const res = await likeSev.toogleLike('6400fa768ada8e7e5868145a','Tweet','6400eec1ded4a0081d2273cc');
+
+
+
+    // const res = await likeSev.toogleLike('6400fa768ada8e7e5868145a','Tweet','6400eec1ded4a0081d2273cc');
     // 
 
 
 
-    console.log(res);
+    // console.log(res);
     // console.log(await tweet.getWithLikes('64003cb570f8f1e2b98ba5dd').likes);
 // 
     
