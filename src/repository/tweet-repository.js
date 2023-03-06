@@ -23,7 +23,21 @@ class TweetRepository extends CrudRepository {
             console.log(error);
         }
     }
-
+    async getWithCommentsInsideComments(id) {
+        try {
+            const tweet = await Tweet.findById(id).populate(
+                { path: 'comments'
+                ,
+                  populate : {
+                    path : 'comments',
+                    model : 'Comment'
+                  }  
+                });
+            return tweet;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     /*
     update tweet not required as twitter dont support this feature 

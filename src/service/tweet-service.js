@@ -51,6 +51,11 @@ class TweetService {
         return tweet;
     }
 
+    async get(tweetId){
+        const tweet = await this.tweetRepository.getWithCommentsInsideComments(tweetId);
+        return tweet;
+    }
+
 
 }
 
