@@ -10,7 +10,8 @@ class TweetRepository extends CrudRepository {
             const tweet = await Tweet.create(data);
             return tweet;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
+            throw error;
         }
     }
 
@@ -21,6 +22,7 @@ class TweetRepository extends CrudRepository {
             return tweet;
         } catch (error) {
             console.log(error);
+            throw error ; 
         }
     }
     async getWithCommentsInsideComments(id) {
@@ -36,6 +38,7 @@ class TweetRepository extends CrudRepository {
             return tweet;
         } catch (error) {
             console.log(error);
+            throw error ; 
         }
     }
 
@@ -54,10 +57,11 @@ class TweetRepository extends CrudRepository {
 
     async getAll(offset, limit) {
         try {
-            const tweet = await Tweet.find().skip(offset).limit(limit);
+            const tweet = await Tweet.find().skip(offset).limit(limit);       
             return tweet;
         } catch (error) {
             console.log(error);
+            throw error ; 
         }
     }
 

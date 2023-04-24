@@ -9,6 +9,7 @@ const opts = {
     secretOrKey : 'secret'
 }
 export const passportAuth = (passport) =>{
+    console.log("inside middleware ")
     passport.use(new JwtStrategy(opts , async (jwt_payload , done)=>{
         try {
             
